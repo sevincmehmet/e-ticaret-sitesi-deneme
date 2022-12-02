@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Grup2.1</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About </a></li>
+            <li><a href="">Dicta, facere?</a></li>
+            <li><a href="">Fuga, molestias.</a></li>
+            <li class="select">
+                    <button class="list_btn">Sırala</button>
+                    <span class="button_arrow"></span>
+                    <div class="option_container">
+                      <label class="option_field">
+                        <input class="list_option" type="radio" name="list" title="Varsayılan">Varsayilan
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="option_field">
+                        <input class="list_option" type="radio" name="list" title="Artan">Artan
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="option_field">
+                        <input class="list_option" type="radio" name="list" title="Azalan">Azalan
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+            </li>
+            <li>
+                <div class="search-div">
+                    <i style="color:rgb(209, 108, 0);cursor: pointer;padding-right: 7px; font-size:medium;"
+                        class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="searche" id="searchInp" onkeyup="searchFunc()"
+                        placeholder="Enter the name of the product" title="Type in a name">
+
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <header class="header">
+    </header>
+
+
+    <div class="container">
+
+        <div id="main-card" class="main-card">
+        </div>
+        <script src="js/product.js"></script>
+        <script src="js/script.js"></script>
+</body>
+
+</html>

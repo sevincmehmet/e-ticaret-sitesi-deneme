@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 0.3s ease;
+}
+
+body {
+    background-color: rgb(231, 229, 229);
+    height: 200vh;
+}
+
+.nav {
+    width: 100%;
+    height: 4rem;
+    background-color: rgb(255, 132, 0);
+    position: sticky;
+    top: 0px;
+    z-index: 999999;
+}
+
+.nav a {
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+}
+
+.nav ul {
+    margin: 0 5%;
+    display: flex;
+}
+
+.nav ul li {
+    margin: 10px 25px;
+}
+.select {
+    position: absolute;
+    right: 350px
+}
+.list_option {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+/*Style option menu and its items*/
+.option_container {
+    margin-top: 10px;
+    border-radius: 2px;
+    box-shadow: 3px 3px 20px 1px #aaa;
+    height: 0px;
+    width: 200px;
+    transition-duration: 0.3s;
+    transition-delay: 0.4s;
+    overflow: auto;
+    visibility: hidden;
+}
+.option_field {
+    display: block;
+    background-color: white;
+    border-radius: 2px;
+    padding: 10px 80px 10px 5px;
+    cursor: pointer;
+}
+.option_field:hover {
+    background-color: #ddd;
+}
+/*Create select checkmarks*/
+.checkmark {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    left: 80px;
+    bottom: 5px;
+    border: solid black;
+    border-width: 0 0 3px 3px;
+    transform: rotate(-45deg);
+    visibility: hidden;
+}
+/*Checkmark visible when option selected*/
+.list_option:checked ~ .checkmark {
+    visibility: visible;
+}
+.list_btn{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    font-size: 1rem;
+    width: 200px;
+}
+/*Open list when list button is clicked*/
+.list_btn:focus ~ .option_container {
+    height: 85px;
+    visibility: visible;
+}
+
+.nav ul li .search-div {
+    height: 36px;
+    width: 250px;
+    position: absolute;
+    right: 5%;
+    width: 350;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+input:focus{
+    outline: 0;
+}
+
+input.searche {
+    height: 90%;
+    width: 80%;
+    border: none;
+    font-size: 16px;
+}
+
+input.searche::placeholder {
+    font-size: 16px;
+    color: rgb(152, 152, 152);
+    background-size: 9%;
+}
+
+
+.delete {
+    padding: 5px 6.875px;
+    position: absolute;
+    z-index: 999;
+    top: -5px;
+    right: -5px;
+    color: lightslategray;
+    background-color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.delete:hover {
+    color: rgba(180, 0, 0, 0.774);
+}
+
+.main-card {
+    grid-area: main;
+    height: 300px;
+}
+
+.container {
+    margin: 0 5%;
+    width: 85%;
+    display: grid;
+    grid-template-areas:
+        'main main main main'
+        'main main main main';
+    padding: 10px;
+    background-color: rgb(231, 229, 229);
+}
+
+.container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.container .main-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: rgb(231, 229, 229);
+    padding: 10px;
+    gap: 20px;
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    font-size: 30px;
+    text-align: center;
+    height: 370px;
+    width: 320px;
+    position: relative;
+}
+
+.grid-container{
+    
+    position: absolute;
+    height: 170px;
+    width: 100%;
+    display: grid;
+    z-index: 99;
+}
+
+.card ul {
+    padding: 20px;
+}
+
+.card ul li {
+    font-size: 16px;
+}
+
+.card ul li img {
+    display: flex;
+    justify-content: center;
+    width: 320px;
+    height: 150px;
+    object-fit: contain;
+    position: relative;
+    right: 20px;
+}
+
+.card ul li.title {
+    color: #464646;
+    font-size: 1.2rem;
+}
+
+.card ul li.section {
+    text-align: center;
+    padding: 10px;
+    margin: 0 15%;
+    font-size: small;
+    color: #464646;
+    height: 59px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card ul li strong.price {
+    font-size: 1.3rem;
+    color: burlywood;
+    
+}
+
+.card ul li .icons {
+    font-size: 0.7rem;
+    padding: 10px;
+    color: rgb(255, 183, 0);
+}
+
+.brand {
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: burlywood;
+    position: absolute;
+    bottom: 0px;
+}

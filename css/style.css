@@ -199,6 +199,20 @@ input.searche::placeholder {
     font-size: 16px;
 }
 
+.card .pDiv {
+    display: inline-flex;
+}
+.card p {
+    font-size: 3rem;
+    color: lightgray;
+    display: inline-block;
+    height: 10px;
+    position: relative;
+    bottom: 219px;
+    left: 111px;
+    transition: 0.2s;
+}
+
 .card ul li img {
     display: flex;
     justify-content: center;
@@ -236,7 +250,7 @@ input.searche::placeholder {
 .card ul li .icons {
     font-size: 0.7rem;
     padding: 10px;
-    color: rgb(255, 183, 0);
+    color: orange;
 }
 
 .brand {

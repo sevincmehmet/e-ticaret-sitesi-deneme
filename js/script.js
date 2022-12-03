@@ -690,26 +690,47 @@ function nesneOlustur(oArr) {
   //Nesne Oluşturukuyor
 for (let i = 0; i < oArr.length; i++) {
   new Product(oArr[i], i); //NESNE OLUŞTURUYOR --> İÇERSİNDE KART OLUSTURMA FONKSİYONU VARDIR
+  
+  let pDiv = document.createElement('div')
+  pDiv.setAttribute('class' ,'pDiv')
+  pDiv.setAttribute('id' ,`pDiv-${i}`)
+  pDiv.style.cssText = "display: none;"
+
 
   for (let j = 0; j < oArr[i].images.length; j++) {
-    //CARTLARIN İÇERSİNE RESİMLER ATILIYOR
+
+   //resimler grid ile bölünüyor slayt sistmei olusuyor
     let panel0 = document.getElementsByClassName("grid-container")[i];
-    panel0.style.gridTemplateRows = `repeat(${oArr[i].images.length},1fr);`;
+    panel0.style.cssText = `grid-template-columns:repeat(${oArr[i].images.length},1fr);`;
     let div = document.createElement("div");
     div.setAttribute("class", `item-${j}`);
     div.setAttribute('onmouseenter', `slaytGoster(${i}, ${j})`)
     div.setAttribute('onmouseleave', `slaytGizle(${i}, ${j})`)
-
     panel0.appendChild(div);
+    // resim değştikce turuncu olacak noktalar olusturuluyor
+    
+    let p = document.createElement('p');
 
+    p.setAttribute('class', 'p')
+    p.setAttribute('id', `p${i}${j}`)
+    p.innerHTML = "."
+
+    pDiv.appendChild(p)
+    document.getElementsByClassName('card')[i].appendChild(pDiv);
+
+
+ //CARTLARIN İÇERSİNE RESİMLER ATILIYOR
     let panel1 = document.getElementById(`images-${i}`);
     let img = document.createElement("img");
+    
+   
     img.setAttribute("src", `${oArr[i].images[j]}`);
     img.style.cssText = "display: none;"
     img.setAttribute("class", "slayt");
 
-
+    
     panel1.appendChild(img);
+    
 
     document.querySelectorAll(`#images-${i} > .slayt`)[0].style.cssText = "display: block;"
   }
@@ -718,17 +739,26 @@ for (let i = 0; i < oArr.length; i++) {
 
 }
 
-//farenin bölmeler üzerinde dolaşıncaki resim değişiminin kontrolünü sağlıyor
+//fare ile slayt üzerinde gezinme kontrolü
+
 
 function slaytGoster(oIndex, imgIndex) {
+  
   document.querySelectorAll(`#images-${oIndex} > .slayt`)[imgIndex].style.cssText = "display: block;"
+  document.getElementById(`p${oIndex}${imgIndex}`).style.color = "orange"
   if (imgIndex > 0) {
     document.querySelectorAll(`#images-${oIndex} > .slayt`)[0].style.cssText = "display: none"
+    document.getElementById(`p${oIndex}${0}`).style.color = "lightgray"
   }
 }
 function slaytGizle(oIndex, imgIndex) {
+
   document.querySelectorAll(`#images-${oIndex} > .slayt`)[imgIndex].style.cssText = "display: none;"
+  document.getElementById(`p${oIndex}${imgIndex }`).style.color = "lightgray"
+
   document.querySelectorAll(`#images-${oIndex} > .slayt`)[0].style.cssText = "display: block;"
+  document.getElementById(`p${oIndex}${0}`).style.color = "orange"
+
 }
 
 // arama inputuma yazılan kelimeyi aratıyor
@@ -748,10 +778,19 @@ function searchFunc() {
     }
   }
 }
-
 // silme iconuna tıklanınca kartı sil
 
 function cardRemove(oIndex) {
   card = document.getElementById(`card-${oIndex}`).remove();
   oProducts.splice(oIndex.value, 1);
+}
+
+function cardsEnter(oIndex) {
+  document.getElementById(`pDiv-${oIndex}`).style.cssText = "display: block"
+  document.getElementById(`delete-${oIndex}`).style.cssText = "display: block"
+}
+function cardsOut(oIndex) {
+  document.getElementById(`pDiv-${oIndex}`).style.cssText = "display: none"
+  document.getElementById(`delete-${oIndex}`).style.cssText = "display: none"
+
 }

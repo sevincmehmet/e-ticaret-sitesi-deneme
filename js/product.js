@@ -11,6 +11,10 @@ class Product {
         var div = document.createElement("div");
         div.classList.add("card");
         div.setAttribute('id', `card-${this.oIndex}`)
+        div.setAttribute('onmouseenter', `cardsEnter(${this.oIndex})`)
+        div.setAttribute('onmouseleave', `cardsOut(${this.oIndex})`)
+
+
         div.innerHTML = oCard.trim();
         document.getElementsByClassName("main-card")[0].appendChild(div);
     }
@@ -50,7 +54,7 @@ class Product {
         <div class="brand">
             ${this.firstUpperCase(productDetails.brand)}
         </div>
-        <i onclick="cardRemove(${this.oIndex})" class="delete fa-solid fa-trash-can"></i>
+        <i onclick="cardRemove(${this.oIndex})" id="delete-${this.oIndex}" style=" display: none; " class="delete fa-solid fa-trash-can"></i>
 
         `
         return newCard;
